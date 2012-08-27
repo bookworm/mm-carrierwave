@@ -6,6 +6,7 @@ require 'carrierwave/validations/active_model'
 module CarrierWave
   module MongoMapper
     include CarrierWave::Mount
+    
     ##
     # See +CarrierWave::Mount#mount_uploader+ for documentation
     #
@@ -30,4 +31,5 @@ module CarrierWave
   end
 end
 
-MongoMapper::Plugins::Rails::ClassMethods.send(:include, CarrierWave::MongoMapper)
+MongoMapper::Plugins::Document::ClassMethods.send(:include, CarrierWave::MongoMapper)
+MongoMapper::Plugins::EmbeddedDocument::ClassMethods.send(:include, CarrierWave::MongoMapper)
